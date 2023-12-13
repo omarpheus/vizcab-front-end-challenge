@@ -57,10 +57,31 @@
         The callback will trigger the function sortBuildings with a parameter true or false
       -->
     </div>
-    <div :key="buildings.key">
-      <div v-for="building in buildings.data.data" :key="building.id">
-        <Building :id="`building-component-${building.id}`" :building="building" />
+    <div class="buildings-list" :key="buildings.key">
+      <div class="building-component" :id="`building-component-${building.id}`" v-for="building in buildings.data.data" :key="building.id">
+        <Building :building="building" />
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+
+
+.buildings-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem
+}
+.building-component {
+  background-color: #80a1e9;
+  color: #333333;
+}
+
+@media screen and (max-width: 768px) {
+  .buildings-list{
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>

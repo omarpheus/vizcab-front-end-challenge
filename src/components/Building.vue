@@ -17,3 +17,12 @@
     </div>
   </div>
 </template>
+
+<script setup>
+// We can also use grid-template to position the building details links
+.building-details {
+  background-color: #333333;
+  color: #d5ddf0;
+
+}
+</script>
