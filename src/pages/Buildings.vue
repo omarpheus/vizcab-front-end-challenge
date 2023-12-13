@@ -25,7 +25,7 @@
   onBeforeMount(() => {
     // we fetch data to the backend
     fetch(
-      `http://localhost:3500`, { // We may improve the code by passing http://localhost:3500 to an .env variable.
+      `http://localhost:3000`, { // We may improve the code by passing http://localhost:3000 to an .env variable.
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
