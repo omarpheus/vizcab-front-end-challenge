@@ -6,6 +6,8 @@
   // 2. Emits a callback to the parent page/component to that we can call the function to sort the buildings.
 
   // That is why we will call ref and emit in vue 3.
+
+  // We need a test to make sure that the state is true or false
   
    import { ref, defineEmits } from 'vue'
    const isCarbon = ref({state: true, text: 'Sort by carbon emissions'})
