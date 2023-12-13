@@ -1,5 +1,19 @@
+<script setup>
+  // We need a test to make sure that the object passed in props respects the right data structure for the building
+  defineProps({
+    building: Object
+  })
+</script>
+
 <template>
   <div>
-    Building component
+    <div :id="`building-${building.id}`" class="building">
+      <div class="building-name">{{ building.name }}</div>
+      <div class="building-address-street">{{ building.address }}</div>
+      <div class="building-address-postcode-city">
+        <span class="building-address-postcode">{{ building.postcode }}</span> <span class="building-address-city">{{ building.city }}</span>
+      </div>
+      <div class="building-details"><router-link :to="`/buildings/${building.id}`">Details</router-link></div>
+    </div>
   </div>
 </template>

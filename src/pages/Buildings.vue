@@ -1,6 +1,7 @@
 <script setup>
   import { reactive, onBeforeMount } from 'vue'
-  import SortingVue from '../components/Sorting.vue';
+  // import SortingVue from '../components/Sorting.vue';
+  import Building from '../components/Building.vue';
 
   const buildings = reactive({data: [], key: 0}) // reactive component for the list of buildings
 
@@ -17,6 +18,7 @@
         return a.surface - b.surface
       })
     }
+    // We may need buildings.key++ to rerender the component
   }
 
   onBeforeMount(() => {
@@ -47,22 +49,17 @@
 <template>
   <div>
     <div>
-      <SortingVue />
+      <div><button>Sorting button that is not yet completed</button></div>
+      <!-- <SortingVue /> -->
        <!--
         needs a callback to know whether the page is sorted by carbon or surface
         When the button is switched, we will call a function that will sort the object "buildings"
+        The callback will trigger the function sortBuildings with a parameter true or false
       -->
     </div>
     <div :key="buildings.key">
       <div v-for="building in buildings.data.data" :key="building.id">
-        <div :id="`building-${building.id}`" class="building">
-          <div class="building-name">{{ building.name }}</div>
-          <div class="building-address-street">{{ building.address }}</div>
-          <div class="building-address-postcode-city">
-            <span class="building-address-postcode">{{ building.postcode }}</span> <span class="building-address-city">{{ building.city }}</span>
-          </div>
-          <div class="building-details"><router-link :to="`/buildings/${building.id}`">Details</router-link></div>
-        </div>
+        <Building :id="`building-component-${building.id}`" :building="building" />
       </div>
     </div>
   </div>
